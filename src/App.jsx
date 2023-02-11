@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Protected from "./Protected";
+import Dashboard from "./Dashboard";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,7 +12,26 @@ function App() {
   }
 
   return (
-    <h1>Hello, World!</h1>
+    <Routes>
+      <Route
+        exact
+        path="/"
+        element={
+          isLoggedIn
+          ? <Navigate replace to={"/dashboard"} />
+          : <LoginForm handleIsLoggedIn={handleIsLoggedIn} />
+        }
+      />
+      <Route
+        exact
+        path="/dashboard"
+        element={
+          <Protected loginStatus={handleIsLoggedIn}>
+            <Dashboard />
+          </Protected>
+        }
+      />
+    </Routes>
   );
 }
 
