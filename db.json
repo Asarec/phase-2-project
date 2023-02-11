@@ -1,0 +1,78 @@
+{
+  "clients": [
+    {
+      "name": "Brakus Inc",
+      "tasks": [
+        {
+          "title": "Unable to Access Database",
+          "description": "API key is not functional anymore. Do we need a new one?",
+          "todo": [
+            "Meet with Client",
+            "Propose New API Key",
+            "RPA Team Introduction"
+          ],
+          "priority": "low",
+          "createdOn": "12-26-2022"
+        },
+        {
+          "title": "Onboarding Plans",
+          "description": "Introducing our client to our new product.",
+          "todo": [
+            "Present New Product",
+            "Scalability"
+          ],
+          "priority": "medium",
+          "createdOn": "12-28-2022"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Bogan Group",
+      "tasks": [],
+      "id": 2
+    },
+    {
+      "name": "Heidenreich Inc",
+      "tasks": [
+        {
+          "title": "Reconciliation Error",
+          "description": "There is a disconnect with the client regarding our reconciliation requirements.",
+          "todo": [],
+          "priority": "high",
+          "createdOn": "12-21-2022"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "Conn PLC",
+      "tasks": [
+        {
+          "title": "New Expansion",
+          "description": "A new expansion is taking place, and we'd like to include our client!",
+          "todo": [
+            "Expansion Plans",
+            "Profitability",
+            "Team Introductions",
+            "New Member!"
+          ],
+          "priority": "medium",
+          "createdOn": "01-02-2023"
+        },
+        {
+          "title": "Fund Remittance",
+          "description": "We have an outstanding balance that needs to be addressed.",
+          "todo": [
+            "March 2022",
+            "May 2022",
+            "June 2022"
+          ],
+          "priority": "low",
+          "createdOn": "02-03-2023"
+        }
+      ],
+      "id": 4
+    }
+  ]
+}

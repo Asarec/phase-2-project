@@ -31,6 +31,14 @@ function App() {
           </Protected>
         }
       />
+      <Route
+        path="/dashboard/:id"
+        element={
+          <Protected loginStatus={handleIsLoggedIn}>
+            <Dashboard />
+          </Protected>
+        }
+      />
     </Routes>
   );
 }
