@@ -24,7 +24,7 @@ function Sidebar({ clients, handleIsLoggedIn, addClient }) {
   }
 
   function handleModal() {
-    setShowModal(true);
+    setShowModal(showModal => !showModal);
   }
 
   return (
@@ -111,7 +111,7 @@ function Sidebar({ clients, handleIsLoggedIn, addClient }) {
               </div>
               <button onClick={handleModal}>
                 <PlusIcon className="h-6 w-6 text-gray-700 ml-1" />
-                {showModal ? <ModalForm addClient={addClient} /> : ""}
+                {showModal ? <ModalForm handleModal={handleModal} addClient={addClient} /> : ""}
               </button>
             </div>
             <nav className="mt-6 px-3">

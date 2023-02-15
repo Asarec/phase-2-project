@@ -2,10 +2,15 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
-function ModalForm({ addClient }) {
+function ModalForm({ handleModal, addClient }) {
   const [open, setOpen] = useState(true);
   const [client, setClient] = useState("");
   const [submitMessage, setSubmitMessage] = useState(false);
+
+  function handleModalForm() {
+    handleModal(true);
+    setOpen(open => !open);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,17 +20,18 @@ function ModalForm({ addClient }) {
       tasks: []
     };
 
-    fetch("http://localhost:3000/clients", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newClient)
-    })
-    .then(response => response.json())
-    .then(data => addClient(data));
+    if (event.target[0].value) {
+      fetch("http://localhost:3000/clients", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newClient)
+      })
+      .then(response => response.json())
+      .then(data => addClient(data));
+    }
 
-    setInterval(_ => {
-      setOpen(false);
-    }, 2000);
+    handleModal(true);
+    setOpen(false);
   }
 
   function handleMessage(event) {
@@ -41,7 +47,7 @@ function ModalForm({ addClient }) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Dialog as="div" className="relative z-10" onClose={handleModalForm}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
