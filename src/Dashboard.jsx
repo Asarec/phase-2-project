@@ -16,7 +16,7 @@ function Dashboard({ handleIsLoggedIn }) {
   }, [newClient])
 
   return (
-    <Sidebar clients={clients} handleNewClient={handleNewClient} handleIsLoggedIn={handleIsLoggedIn} />
+    <Sidebar clients={clients} addClient={handleNewClient} handleIsLoggedIn={handleIsLoggedIn} />
   );
 }
 

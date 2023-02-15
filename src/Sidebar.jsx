@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ModalForm from "./ModalForm";
 import { Menu, Transition } from "@headlessui/react";
 import {
   ChevronRightIcon,
@@ -8,9 +9,10 @@ import {
   PlusIcon
 } from "@heroicons/react/20/solid";
 
-function Sidebar({ clients, handleIsLoggedIn }) {
+function Sidebar({ clients, handleIsLoggedIn, addClient }) {
   const { id } = useParams();
   const [search, setSearch] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -21,10 +23,14 @@ function Sidebar({ clients, handleIsLoggedIn }) {
     setSearch(event.target.value);
   }
 
+  function handleModal() {
+    setShowModal(true);
+  }
+
   return (
     <>
       <div className="min-h-full">
-        <div className="fixed inset-y-0 flex w-64 flex-col border-r border-gray-200 bg-gray-100 pt-5 lg:pb-4">
+        <div className="fixed inset-y-0 flex w-64 flex-col border-r border-gray-200 bg-gray-100 pt-5 pb-4">
           <div className="flex flex-shrink-0 items-center px-6">
             <img
               className="h-8 w-auto"
@@ -103,8 +109,9 @@ function Sidebar({ clients, handleIsLoggedIn }) {
                   onChange={event => handleSearch(event)}
                 />
               </div>
-              <button>
+              <button onClick={handleModal}>
                 <PlusIcon className="h-6 w-6 text-gray-700 ml-1" />
+                {showModal ? <ModalForm addClient={addClient} /> : ""}
               </button>
             </div>
             <nav className="mt-6 px-3">
