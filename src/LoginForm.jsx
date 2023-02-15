@@ -1,21 +1,31 @@
 import React, { useState } from "react";
+import { XCircleIcon } from "@heroicons/react/20/solid";
 
 function LoginForm({ handleIsLoggedIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   function handleSignIn(event) {
     event.preventDefault();
     setIsLoading(true);
 
-    setTimeout(_ => {
-      if (username === "admin@par.com" && password === "password") {
-        handleIsLoggedIn(true);
-      }
+    if (username === "admin@par.com" && password === "root") {
+      setIsLoading(true);
+      setError(false);
 
+      setTimeout(_ => {
+        handleIsLoggedIn(true);
+      }, 2000);
+    } else {
       setIsLoading(false);
-    }, 2000);
+      setError(true);
+    }
+  }
+
+  function handleErrorMessage() {
+    setError(error => !error);
   }
 
   return (
@@ -99,6 +109,21 @@ function LoginForm({ handleIsLoggedIn }) {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="bg-white px-2">👋</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={`${error ? "visible" : "invisible"} rounded-md bg-red-50 p-4 shadow mt-4`}>
+          <div className="flex">
+            <div className="flex-shrink-0">
+              <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
+            </div>
+            <div className ="ml-3">
+              <h3 className="text-sm font-medium text-red-800">There was an error with your login attempt.</h3>
+              <div className="mt-2 text-sm text-red-700">
+                <ul role="list" className="list-disc space-y-1 pl-5">
+                  <li>Your username or password is incorrect.</li>
+                </ul>
               </div>
             </div>
           </div>
