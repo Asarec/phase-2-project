@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 
-function Dashboard() {
+function Dashboard({ handleIsLoggedIn }) {
   const [clients, setClients] = useState([]);
   const [newClient, setNewClient] = useState("");
 
@@ -16,7 +16,7 @@ function Dashboard() {
   }, [newClient])
 
   return (
-    <Sidebar clients={clients} handleNewClient={handleNewClient} />
+    <Sidebar clients={clients} handleNewClient={handleNewClient} handleIsLoggedIn={handleIsLoggedIn} />
   );
 }
 
