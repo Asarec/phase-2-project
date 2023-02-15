@@ -24,7 +24,7 @@ function Sidebar({ clients, handleIsLoggedIn }) {
   return (
     <>
       <div className="min-h-full">
-        <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col lg:border-r lg:border-gray-200 lg:bg-gray-100 lg:pt-5 lg:pb-4">
+        <div className="fixed inset-y-0 flex w-64 flex-col border-r border-gray-200 bg-gray-100 pt-5 lg:pb-4">
           <div className="flex flex-shrink-0 items-center px-6">
             <img
               className="h-8 w-auto"
