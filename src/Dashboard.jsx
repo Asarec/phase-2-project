@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
+import TaskPage from "./TaskPage";
 
 function Dashboard({ handleIsLoggedIn }) {
   const [clients, setClients] = useState([]);
@@ -13,10 +14,13 @@ function Dashboard({ handleIsLoggedIn }) {
     fetch("http://localhost:3000/clients")
     .then(response => response.json())
     .then(data => setClients(data));
-  }, [newClient])
+  }, [newClient]);
 
   return (
-    <Sidebar clients={clients} addClient={handleNewClient} handleIsLoggedIn={handleIsLoggedIn} />
+    <div className="min-h-full">
+      <Sidebar clients={clients} addClient={handleNewClient} handleIsLoggedIn={handleIsLoggedIn} />
+      <TaskPage clients={clients} addClient={handleNewClient} />
+    </div>
   );
 }
 

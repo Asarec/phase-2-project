@@ -39,6 +39,22 @@ function App() {
           </Protected>
         }
       />
+      <Route
+        path="/dashboard/new-task"
+        element={
+          <Protected loginStatus={handleIsLoggedIn}>
+            <Dashboard />
+          </Protected>
+        }
+      />
+      <Route
+        path="/dashboard/:id/new-task"
+        element={
+          <Protected loginStatus={handleIsLoggedIn}>
+            <Dashboard />
+          </Protected>
+        }
+      />
     </Routes>
   );
 }
