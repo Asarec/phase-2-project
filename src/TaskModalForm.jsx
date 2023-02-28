@@ -1,26 +1,18 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-function TaskModalForm({ clients, clientName }) {
+function TaskModalForm({ clients, clientName, handleNewTask }) {
   const [open, setOpen] = useState(true);
-  const [currentClient, setCurrentClient] = useState(clients.filter(client => client.name === clientName.replace("-", " ")));
 
   function handleNewTask(event) {
-    event.preventDefault();
-
     setOpen(open => !open);
 
-    const date = new Date();
-
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let currentDate = `${month}-${day}-${year}`;
+    const currentClient = clients.filter(client => client.name === clientName.replace("-", " "));
 
     const newTaskData = {
       "title": event.target[0].value,
-      "description": event.target[1].value,
-      "createdOn": currentDate
+      "completed": false,
+      "id": currentClient[0].tasks.length + 1
     }
 
     fetch(`http://localhost:3000/clients/${currentClient[0].id}/`, {
@@ -36,7 +28,7 @@ function TaskModalForm({ clients, clientName }) {
       })
     })
     .then(response => response.json())
-    .then(data => setCurrentClient(data));
+    .then(data => handleNewTask(data));
   }
 
   return (
@@ -76,17 +68,6 @@ function TaskModalForm({ clients, clientName }) {
                         <input
                           type="text"
                           className="block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Task Description
-                      </label>
-                      <div className="mt-1 flex rounded-md shadow-sm">
-                        <textarea
-                          rows={4}
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus: ring-indigo-500"
                         />
                       </div>
                     </div>

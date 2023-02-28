@@ -1,8 +1,8 @@
 import TaskModalForm from "./TaskModalForm";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-function TaskPage({ clients }) {
+function TaskPage({ clients, handleNewTask }) {
   const clientName = useParams();
   const [modalStatus, setModalStatus] = useState(false);
 
@@ -25,7 +25,7 @@ function TaskPage({ clients }) {
                 onClick={handleModalStatus}
               >
                 New Task
-                {modalStatus ? <TaskModalForm clients={clients} clientName={clientName.id} /> : ""}
+                {modalStatus ? <TaskModalForm clients={clients} clientName={clientName.id} handleNewTask={handleNewTask} /> : ""}
               </button>
             </Link>
           </div>
