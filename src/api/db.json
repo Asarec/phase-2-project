@@ -1,0 +1,34 @@
+{
+  "invoices": [
+    {
+      "id": 1,
+      "reference": "f2f68276-45b7-4619-8d77-552e914d803d",
+      "paymentStatus": "Paid",
+      "billedTo": "steve@apple.com",
+      "name": "Apple Vision Pro",
+      "description": "Unreleased model of the Apple Vision Pro for development purposes only.",
+      "taxRate": 7,
+      "dueAmount": 3500
+    },
+    {
+      "id": 2,
+      "reference": "d721ccca-1d2e-4849-9505-b10f24a4ed5f",
+      "paymentStatus": "Not Paid",
+      "billedTo": "assistantto@theoffice.com",
+      "name": "Development Service",
+      "description": "Collaboration with Nike!",
+      "taxRate": 7,
+      "dueAmount": 30500
+    },
+    {
+      "id": 3,
+      "reference": "c27c42d2-f315-44b6-993d-4e7d7442cac7",
+      "paymentStatus": "Cancelled",
+      "billedTo": "john@doe.com",
+      "name": "Design Service",
+      "description": "Creating the next big thing...",
+      "taxRate": 7,
+      "dueAmount": 12000
+    }
+  ]
+}
