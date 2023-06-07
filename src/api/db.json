@@ -13,7 +13,7 @@
     {
       "id": 2,
       "reference": "d721ccca-1d2e-4849-9505-b10f24a4ed5f",
-      "paymentStatus": "Not Paid",
+      "paymentStatus": "Paid",
       "billedTo": "assistantto@theoffice.com",
       "name": "Development Service",
       "description": "Collaboration with Nike!",
