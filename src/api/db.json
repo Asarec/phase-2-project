@@ -29,6 +29,16 @@
       "description": "Creating the next big thing...",
       "taxRate": 5,
       "dueAmount": 12000
+    },
+    {
+      "reference": "be4a1126-154a-4646-ab4e-0b00f6f9c275",
+      "paymentStatus": "Paid",
+      "billedTo": "john@doe.com",
+      "name": "Voice Acting",
+      "description": "Voice acting services for new animated movie.",
+      "dueAmount": 7500,
+      "taxRate": 2,
+      "id": 4
     }
   ]
 }
