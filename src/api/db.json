@@ -17,7 +17,7 @@
       "billedTo": "assistantto@theoffice.com",
       "name": "Development Service",
       "description": "Collaboration with Nike!",
-      "taxRate": 7,
+      "taxRate": 4,
       "dueAmount": 30500
     },
     {
@@ -27,7 +27,7 @@
       "billedTo": "john@doe.com",
       "name": "Design Service",
       "description": "Creating the next big thing...",
-      "taxRate": 7,
+      "taxRate": 5,
       "dueAmount": 12000
     }
   ]
