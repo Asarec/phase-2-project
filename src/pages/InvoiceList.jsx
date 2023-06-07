@@ -20,7 +20,7 @@ function InvoiceList({ invoices }) {
         <div className="flex justify-between py-5">
           <h2 className="text-2xl font-semibold leading-10 text-gray-600">Invoices</h2>
           <Link
-            to="#"
+            to="/new-invoice"
             className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             New Invoice
@@ -57,6 +57,35 @@ function InvoiceList({ invoices }) {
             </div>
           </li>
         ))}
+        <li className="flex items-center justify-between py-5">
+          <div className="mr-24 min-w-0">
+            <div className="flex items-start gap-x-3">
+              <p className="text-sm font-semibold leading-6">False Invoice</p>
+              <p
+                className={classNames(
+                  statuses["Cancelled"],
+                  "mt-0.5 whitespace-nowrap rounded-md px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset"
+                )}
+              >
+                Cancelled
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-none items-center gap-x-4">
+            <p className="hidden text-sm text-green-700">
+              {Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(17000)}
+            </p>
+            <Link
+              to="/404"
+              className="hidden rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:block"
+            >
+              View
+            </Link>
+          </div>
+        </li>
       </ul>
     </div>
   );
