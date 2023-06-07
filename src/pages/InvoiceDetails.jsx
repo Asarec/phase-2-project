@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 function InvoiceDetails({ invoices, handleInvoicesUpdate }) {
   const [option, setOption] = useState("Paid");
@@ -31,7 +32,12 @@ function InvoiceDetails({ invoices, handleInvoicesUpdate }) {
 
   return (
     <div className="grid h-screen place-items-center content-center bg-gray-50">
-      <div className="rounded-none bg-white py-5 shadow-none sm:min-w-[38rem] sm:rounded-md sm:shadow-md">
+      <div className="relative rounded-none bg-white py-5 shadow-none sm:min-w-[38rem] sm:rounded-md sm:shadow-md">
+        <div className="absolute left-[-46px]">
+          <Link to="/">
+            <ArrowLeftIcon className="h-8 w-8 text-gray-700 hover:cursor-pointer hover:text-gray-300" />
+          </Link>
+        </div>
         <div className="flex justify-between border-b border-gray-100 px-5 pb-5">
           <h2 className="text-2xl font-semibold text-gray-600">{selectedInvoice.name}</h2>
           <p className="text-xs leading-8 text-gray-300">{selectedInvoice.reference}</p>
