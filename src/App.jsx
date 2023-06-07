@@ -12,7 +12,6 @@ function App() {
   }, []);
 
   function handleInvoicesUpdate(newInvoiceData) {
-    console.log("It worked?");
     setInvoices((prevInvoices) => {
       const newArray = [...prevInvoices];
       const index = newArray.findIndex((invoice) => invoice.id === newInvoiceData.id);
