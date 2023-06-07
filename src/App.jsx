@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { InvoiceList, InvoiceDetails, FourOhFour } from "./pages";
+import { InvoiceList, InvoiceDetails, AddInvoice, FourOhFour } from "./pages";
 
 function App() {
   const [invoices, setInvoices] = useState([{}]);
@@ -34,6 +34,7 @@ function App() {
         path="/invoices/:id"
         element={<InvoiceDetails invoices={invoices} handleInvoicesUpdate={handleInvoicesUpdate} />}
       />
+      <Route path="/new-invoice" element={<AddInvoice handleInvoicesUpdate={handleInvoicesUpdate} />} />
       <Route path="*" element={<FourOhFour />} />
     </Routes>
   );
