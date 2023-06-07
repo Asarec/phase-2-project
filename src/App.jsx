@@ -11,10 +11,29 @@ function App() {
       .then((data) => setInvoices(data));
   }, []);
 
+  function handleInvoicesUpdate(newInvoiceData) {
+    console.log("It worked?");
+    setInvoices((prevInvoices) => {
+      const newArray = [...prevInvoices];
+      const index = newArray.findIndex((invoice) => invoice.id === newInvoiceData.id);
+
+      if (index !== -1) {
+        newArray[index] = newInvoiceData;
+      } else {
+        newArray.push(newInvoiceData);
+      }
+
+      return newArray;
+    });
+  }
+
   return (
     <Routes>
       <Route path="/" element={<InvoiceList invoices={invoices} />} />
-      <Route path="/invoices/:id" element={<InvoiceDetails invoices={invoices} />} />
+      <Route
+        path="/invoices/:id"
+        element={<InvoiceDetails invoices={invoices} handleInvoicesUpdate={handleInvoicesUpdate} />}
+      />
       <Route path="*" element={<FourOhFour />} />
     </Routes>
   );
