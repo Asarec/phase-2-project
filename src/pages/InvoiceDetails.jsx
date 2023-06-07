@@ -1,13 +1,32 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-function InvoiceDetails({ invoices }) {
-  const [option, setOption] = useState();
+function InvoiceDetails({ invoices, handleInvoicesUpdate }) {
+  const [option, setOption] = useState("Paid");
   const filteredInvoice = invoices.filter((invoice) => invoice.id == useParams().id);
+  const navigate = useNavigate();
   let selectedInvoice = filteredInvoice[0];
 
   function handleOption(event) {
     setOption(event.target.value);
+  }
+
+  function updateStatus() {
+    let newUpdate = option;
+
+    fetch(`http://localhost:3000/invoices/${selectedInvoice.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        paymentStatus: newUpdate,
+      }),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => handleInvoicesUpdate(data));
+
+    navigate("/");
   }
 
   return (
@@ -49,7 +68,6 @@ function InvoiceDetails({ invoices }) {
         <div className="flex justify-end pr-5 pt-5">
           <select
             className="mr-2.5 block rounded-md border-0 p-2.5 text-gray-900 ring-1 ring-inset ring-gray-300 hover:cursor-pointer focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            defaultValue="Paid"
             onChange={(event) => handleOption(event)}
           >
             <option>Paid</option>
@@ -60,6 +78,7 @@ function InvoiceDetails({ invoices }) {
             className={`${
               selectedInvoice.paymentStatus === option ? "pointer-events-none line-through" : ""
             } text-sm font-light text-indigo-600 hover:text-indigo-300`}
+            onClick={updateStatus}
           >
             Submit
           </button>
