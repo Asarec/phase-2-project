@@ -3,7 +3,7 @@
     {
       "id": 1,
       "reference": "f2f68276-45b7-4619-8d77-552e914d803d",
-      "paymentStatus": "Paid",
+      "paymentStatus": "Not Paid",
       "billedTo": "steve@apple.com",
       "name": "Apple Vision Pro",
       "description": "Unreleased model of the Apple Vision Pro for development purposes only.",
