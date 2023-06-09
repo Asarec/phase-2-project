@@ -9,7 +9,7 @@ function App() {
     fetch("http://localhost:3000/invoices")
       .then((response) => response.json())
       .then((data) => setInvoices(data));
-  }, [setInvoices]);
+  }, []);
 
   function handleInvoicesUpdate(newInvoiceData) {
     setInvoices((prevInvoices) => {
