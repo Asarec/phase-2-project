@@ -3,7 +3,7 @@
     {
       "id": 1,
       "reference": "f2f68276-45b7-4619-8d77-552e914d803d",
-      "paymentStatus": "Not Paid",
+      "paymentStatus": "Paid",
       "billedTo": "steve@apple.com",
       "name": "Apple Vision Pro",
       "description": "Unreleased model of the Apple Vision Pro for development purposes only.",
@@ -39,6 +39,16 @@
       "dueAmount": 7500,
       "taxRate": 2,
       "id": 4
+    },
+    {
+      "reference": "fe2a887a-1e4c-48e0-b90b-dbd71f7ae458",
+      "paymentStatus": "Not Paid",
+      "billedTo": "admin@company.com",
+      "name": "Service",
+      "description": "Description.",
+      "dueAmount": 1000,
+      "taxRate": 3,
+      "id": 5
     }
   ]
 }
